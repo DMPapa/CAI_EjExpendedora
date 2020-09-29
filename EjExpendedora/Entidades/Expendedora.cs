@@ -13,7 +13,7 @@ namespace EjExpendedora.Entidades
         private int _capacidad;
         private double _dinero;
         private bool _encendida;
-        private List<Lata> _lata;
+        private List<Lata> _latas;
         public string Proveedor
         {
             get
@@ -63,14 +63,25 @@ namespace EjExpendedora.Entidades
         }
 
 
-        public Expendedora(string prov)
+        public Expendedora(string prov, List<Lata> l)
         {
             this._proveedor = prov;
             this._capacidad = 0;
             this._dinero = 0;
             this.Encendida = false;
-            this._lata = new List<Lata>();
+            this._latas = new List<Lata>(l);
 
+        }
+
+        public string GetLatas ()
+        {
+            string listado ="";
+            foreach (Lata la in this._latas)
+            {
+                listado += la.Codigo + " - " + la.Nombre + "\n";
+             
+            }
+            return listado;
         }
 
         public void AgregarLata ()

@@ -72,11 +72,17 @@ namespace EjExpendedora.Entidades
 
         public Lata(string cod, string nom, string sab, double precio, double vol)
         {
-            this.Codigo = cod;
+            this._codigo = cod;
             this._nombre = nom;
             this._sabor = sab;
             this._precio = precio;
             this._Volumen = vol;
+        }
+
+        public Lata (string cod, string nom)
+        {
+            this._codigo = cod;
+            this._nombre = nom;
         }
 
         public double GetPrecioPorLitro()
