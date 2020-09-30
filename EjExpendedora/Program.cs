@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,8 +26,10 @@ namespace EjExpendedora
             listaLatas.Add(new Lata("SP2", "Sprite Zero"));
             listaLatas.Add(new Lata("FA1", "Fanta Regular"));
             listaLatas.Add(new Lata("FA2", "Fanta Zero"));
-
+            listaLatas.Add(new Lata("CU1", ""));
             e1 = new Expendedora("Miguelito", listaLatas );
+            
+            
             // Aquí comienza la aplicación
 
             ConsolaHelper.PedirTexto("Bienvenido a la expendedora de: " + e1.Proveedor + ". Encienda la maquina presionando ENTER   ");
@@ -45,8 +48,17 @@ namespace EjExpendedora
                          {
                             case 1: ConsolaHelper.PedirTexto(e1.GetLatas() + "\nPresione ENTER para volver al menú\n");
                                 break;
-                            case 2:  e1.AgregarLata();
-                                break;
+                            case 2:
+                                        string eleccion2 = ConsolaHelper.PedirTexto(e1.GetLatas());
+                                        try
+                                        {
+                                            foreach (Lata la in listaLatas)
+                                            {
+                                                if (la.Codigo2 == eleccion2)
+                                                    e1.AgregarLata();
+                                            }
+                                        } catch (Exception ex) { Console.WriteLine(ex.Message); }
+;                                break;
                             case 3: e1.ExtraerLata();
                                 break;
                             case 4: e1.GetBalance();

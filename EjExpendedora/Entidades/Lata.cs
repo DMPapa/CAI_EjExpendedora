@@ -25,6 +25,14 @@ namespace EjExpendedora.Entidades
                 this._codigo = value;
             }
         }
+
+        public string Codigo2
+        {
+            get
+            {
+                return this._codigo;
+            }
+        }
         public string Nombre
         {
             get
