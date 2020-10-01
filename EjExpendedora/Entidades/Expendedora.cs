@@ -62,15 +62,26 @@ namespace EjExpendedora.Entidades
                 this._encendida = value;
             }
         }
+        public List<Lata> ListaLatas
+        {
+            get
+            {
+                return this._latas;
+            }
+            set
+            {
+                this._latas = value;
+            }
+        }
 
 
-        public Expendedora(string prov, List<Lata> l)
+        public Expendedora(string prov)
         {
             this._proveedor = prov;
-            this._capacidad = 0;
+            this._capacidad = 50;
             this._dinero = 0;
             this.Encendida = false;
-            this._latas = new List<Lata>(l);
+            this._latas = new List<Lata>();
 
         }
 
@@ -79,15 +90,28 @@ namespace EjExpendedora.Entidades
             string listado ="";
             foreach (Lata la in this._latas)
             {
-                listado += la.Codigo + " - " + la.Nombre + "\n";
+                listado += la.Codigo + " - " + la.Nombre + "\n" + la.Sabor + "\n";
              
             }
             return listado;
         }
 
-        public void AgregarLata ()
+        public void AgregarLata (string cod)
         {
-
+            int a = 1;
+            int b = 5;
+            if (a < b)
+                throw new Exception("ERROR: Codigo invalido");
+            else
+                if (this._latas.Any(x => x.GetCodigo == cod))
+                foreach (Lata la in this._latas)
+                {
+                    if (la.GetCodigo == cod)
+                        la.Precio = ConsolaHelper.PedirNumero("Ingrese precio de las latas");
+                    la.Volumen = ConsolaHelper.PedirNumero("Ingrese cantidad de latas");
+                    this._capacidad -= la.Volumen;
+                }
+                    
         }
 
         public void ExtraerLata ()

@@ -12,7 +12,7 @@ namespace EjExpendedora.Entidades
         private string _nombre;
         private string _sabor;
         private double _precio;
-        private double _Volumen;
+        private int _Volumen;
 
         public string Codigo
         {
@@ -26,7 +26,7 @@ namespace EjExpendedora.Entidades
             }
         }
 
-        public string Codigo2
+        public string GetCodigo
         {
             get
             {
@@ -66,7 +66,7 @@ namespace EjExpendedora.Entidades
                 this._precio = value;
             }
         }
-        public double Volumen
+        public int Volumen
         {
             get
             {
@@ -78,7 +78,7 @@ namespace EjExpendedora.Entidades
             }
         }
 
-        public Lata(string cod, string nom, string sab, double precio, double vol)
+        public Lata(string cod, string nom, string sab, double precio, int vol)
         {
             this._codigo = cod;
             this._nombre = nom;
@@ -87,15 +87,17 @@ namespace EjExpendedora.Entidades
             this._Volumen = vol;
         }
 
-        public Lata (string cod, string nom)
+        public Lata(string cod, string nom, string sab)
         {
             this._codigo = cod;
             this._nombre = nom;
+            this._sabor = sab;
+
         }
 
         public double GetPrecioPorLitro()
         {
-            return (this._precio * this.Volumen / 1000); 
+            return (this._precio * this.Volumen / 2); 
         }
 
         public override string ToString()

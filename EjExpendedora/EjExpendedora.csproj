@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Excepciones.cs" />
     <Compile Include="ConsolaHelper.cs" />
     <Compile Include="Entidades\Expendedora.cs" />
     <Compile Include="Entidades\Lata.cs" />

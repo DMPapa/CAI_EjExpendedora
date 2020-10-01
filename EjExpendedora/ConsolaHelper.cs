@@ -30,5 +30,9 @@ namespace EjExpendedora
             return numero;
         }
 
+        public static void Mensaje(string msj)
+        {
+            Console.WriteLine(msj);
+        }
     }
 }
